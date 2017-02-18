@@ -23,5 +23,6 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    $names = ["woo", "boo", "coo"];
+    return view('about')->with('names', $names);
 });

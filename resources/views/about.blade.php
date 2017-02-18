@@ -8,6 +8,10 @@
 
 <body>
     <h1>About Us</h1>
+    @foreach ($names as $name)
+        <li>{{$name}}</li>
+    @endforeach
+
 </body>
 
 </html>
