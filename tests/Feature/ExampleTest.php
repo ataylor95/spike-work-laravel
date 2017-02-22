@@ -14,7 +14,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    ublic function testBasicTest()
+    public function testBasicTest()
     {
         $this->assertTrue(true);
     }
