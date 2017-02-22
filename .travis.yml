@@ -12,4 +12,5 @@ before_script:
   - php artisan key:generate
 
 script:
+  - vendor/bin/phplint
   - vendor/bin/phpunit
