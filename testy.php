@@ -1,4 +1,4 @@
 <?php
-if (true){
+i (true){
     echo 3;
 }
