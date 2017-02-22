@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', fuction () {
+Route::get('/', function () {
     $name = "wayy";
     //return view('welcome', [
     //    'name' => 'boo'
