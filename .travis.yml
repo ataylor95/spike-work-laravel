@@ -12,5 +12,5 @@ before_script:
   - php artisan key:generate
 
 script:
-  - vendor/bin/phplint --no-cache -vvv testy.php 
+  - vendor/bin/phplint 
   - vendor/bin/phpunit
