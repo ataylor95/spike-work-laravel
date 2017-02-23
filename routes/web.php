@@ -26,3 +26,14 @@ Route::get('/about', function () {
     $names = ["woo", "boo", "coo"];
     return view('about')->with('names', $names);
 });
+
+Route::get('/tasks', function () {
+    $tasks = DB::Table('tasks')->latest()->get();
+    //return $tasks; //returning it as json
+    return view('tasks.index', compact('tasks'));
+});
+
+Route::get('/tasks/{id}', function ($id) {
+    $task = DB::Table('tasks')->find($id);
+    return view('tasks.show', compact('task'));
+});
