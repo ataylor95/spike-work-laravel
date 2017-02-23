@@ -16,9 +16,9 @@ php:
 #  - vendor/bin/phpunit
 
 before_script:
-    pwd
-    cd web
-    pwd
+    - pwd
+    - cd web
+    - pwd
 
 script:
-    pwd
+    - pwd
