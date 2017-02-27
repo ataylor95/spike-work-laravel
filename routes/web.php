@@ -40,3 +40,7 @@ Route::get('/tasks/{id}', function ($id) {
     $task = Task::find($id);
     return view('tasks.show', compact('task'));
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
