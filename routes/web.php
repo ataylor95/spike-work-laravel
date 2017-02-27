@@ -1,4 +1,5 @@
 <?php
+use App\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +29,14 @@ Route::get('/about', function () {
 });
 
 Route::get('/tasks', function () {
-    $tasks = DB::Table('tasks')->latest()->get();
+    //$tasks = DB::Table('tasks')->latest()->get();
     //return $tasks; //returning it as json
+    $tasks = Task::all();
     return view('tasks.index', compact('tasks'));
 });
 
 Route::get('/tasks/{id}', function ($id) {
-    $task = DB::Table('tasks')->find($id);
+    //$task = DB::Table('tasks')->find($id);
+    $task = Task::find($id);
     return view('tasks.show', compact('task'));
 });
