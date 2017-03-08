@@ -1,16 +1,20 @@
 language: php
 
 php:
- - 7.0
-
-install:
- - travis_retry composer install --no-interaction --prefer-dist --no-suggest
- - cp .env.example .env # Create a new .env file
- - php artisan key:generate # Generate application key
+  - 5.6
+  - 7.0 
 
 before_script:
- - phantomjs --webdriver=127.0.0.1:9515 & # Start PhantomJS driver
- - php artisan serve & # Start server
- - sleep 5 # Give PhantomJS and Artisan time to start
+  - cp .env.travis .env
+  - mysql -e 'create database homestead_test;'
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+#  - phantomjs --webdriver=127.0.0.1:9515 & # Start PhantomJS driver
+#  - php artisan serve & # Start server
+#  - sleep 5 # Give PhantomJS and Artisan time to start
 
-script: php artisan dusk
+script:
+  - vendor/bin/phplint 
+  - vendor/bin/phpunit
+#  - php artisan dusk
