@@ -10,7 +10,11 @@ before_script:
   - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
+  - phantomjs --webdriver=127.0.0.1:9515 & # Start PhantomJS driver
+  - php artisan serve & # Start server
+  - sleep 5 # Give PhantomJS and Artisan time to start
 
 script:
   - vendor/bin/phplint 
   - vendor/bin/phpunit
+  - php artisan dusk
